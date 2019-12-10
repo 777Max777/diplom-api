@@ -1,0 +1,353 @@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                  <label>Запрос</label>
+                  <input type="text" [(ngModel)]="query" class="form-control border-input" placeholder="Java программист">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                  <label>От</label>
+                  <input type="text" [(ngModel)]="salaryStart" class="form-control border-input" placeholder="25 000">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>До</label>
+                    <input type="text" [(ngModel)]="salaryUntil" class="form-control border-input" placeholder="50 000">
+                </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+                    <label></label>
+                    <button (click) = "getValues()" class="btn btn-primary">Отправить</button>
+              </div>
+          </div>
+        </div>
+        <!--<div class="row">-->
+        <div class="row">
+            <div class="col-md-4" ng-controller="LocationController">
+                <div class="form-group">
+                  <label>Регион</label>
+                  <!--<select select2 multiple ng-model="multipleSelected" ng-options="person.id as person.name for person in list | orderBy: 'name'" style="width: 100%;"></select>-->
+                  <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="OnItemDeSelect($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    (onDeSelectAll)="onDeSelectAll($event)">
+                </angular2-multiselect>
+
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Количество заявок</label>
+                    <input type="text" [(ngModel)]="limit" class="form-control border-input" placeholder="1000">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                      <label>Требуемый опыт работы</label>
+                  <!-- Group of default radios - option 1 -->
+                  <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios" checked>
+                      <label class="custom-control-label" for="defaultGroupExample1">Не имеет значения</label>
+                  </div>
+
+                    <!-- Group of default radios - option 2 -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios">
+                      <label class="custom-control-label" for="defaultGroupExample2">Нет опыта</label>
+                    </div>
+
+                    <!-- Group of default radios - option 3 -->
+                    <div class="custom-control custom-radio">
+                      <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+                      <label class="custom-control-label" for="defaultGroupExample3">От 1 года до 3 лет</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+                        <label class="custom-control-label" for="defaultGroupExample1">	От 3 до 6 лет</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+                        <label class="custom-control-label" for="defaultGroupExample1">Более 6 лет</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Тип занятости</label>
+                    <!-- Default inline 1-->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline1">
+                        <label class="custom-control-label" for="defaultInline1">Полная занятость</label>
+                      </div>
+
+                      <!-- Default inline 2-->
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline2">
+                        <label class="custom-control-label" for="defaultInline2">Частичная занятость</label>
+                      </div>
+
+                      <!-- Default inline 3-->
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline3">
+                        <label class="custom-control-label" for="defaultInline3">Проектная/Временная работа</label>
+                      </div>
+
+                       <!-- Default inline 3-->
+                       <div class="custom-control custom-checkbox custom-control-inline">
+                           <input type="checkbox" class="custom-control-input" id="defaultInline3">
+                          <label class="custom-control-label" for="defaultInline3">Волонтерство</label>
+                        </div>
+
+
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                          <input type="checkbox" class="custom-control-input" id="defaultInline3">
+                          <label class="custom-control-label" for="defaultInline3">Стажировка</label>
+                      </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>График работы</label>
+                    <!-- Default inline 1-->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline1">
+                        <label class="custom-control-label" for="defaultInline1">Полный день</label>
+                      </div>
+
+                      <!-- Default inline 2-->
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline2">
+                        <label class="custom-control-label" for="defaultInline2">Сменный график</label>
+                      </div>
+
+                      <!-- Default inline 3-->
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline3">
+                        <label class="custom-control-label" for="defaultInline3">Гибкий график</label>
+                      </div>
+
+                       <!-- Default inline 3-->
+                       <div class="custom-control custom-checkbox custom-control-inline">
+                           <input type="checkbox" class="custom-control-input" id="defaultInline3">
+                          <label class="custom-control-label" for="defaultInline3">Удаленная работа</label>
+                        </div>
+
+
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                          <input type="checkbox" class="custom-control-input" id="defaultInline3">
+                          <label class="custom-control-label" for="defaultInline3">Вахтовый метод</label>
+                      </div>
+                </div>
+              </div>
+        </div>
+
+            <!--<div class="col-lg-4 col-md-5">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="assets/img/background.jpg" alt="..."/>
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                          <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
+                          <h4 class="title">Chet Faker<br />
+                             <a href="#"><small>@chetfaker</small></a>
+                          </h4>
+                        </div>
+                        <p class="description text-center">
+                            "I like the way you work it <br>
+                            No diggity <br>
+                            I wanna bag it up"
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-1">
+                                <h5>12<br /><small>Files</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>2GB<br /><small>Used</small></h5>
+                            </div>
+                            <div class="col-md-3">
+                                <h5>24,6$<br /><small>Spent</small></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Team Members</h4>
+                    </div>
+                    <div class="content">
+                        <ul class="list-unstyled team-members">
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="avatar">
+                                                    <img src="assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                DJ Khaled
+                                                <br />
+                                                <span class="text-muted"><small>Offline</small></span>
+                                            </div>
+
+                                            <div class="col-xs-3 text-right">
+                                                <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="avatar">
+                                                    <img src="assets/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                Creative Tim
+                                                <br />
+                                                <span class="text-success"><small>Available</small></span>
+                                            </div>
+
+                                            <div class="col-xs-3 text-right">
+                                                <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="avatar">
+                                                    <img src="assets/img/faces/face-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                Flume
+                                                <br />
+                                                <span class="text-danger"><small>Busy</small></span>
+                                            </div>
+
+                                            <div class="col-xs-3 text-right">
+                                                <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Profile</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Company</label>
+                                        <input type="text" class="form-control border-input" disabled placeholder="Company" value="Creative Code Inc.">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control border-input" placeholder="Username" value="michael23">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control border-input" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control border-input" placeholder="Company" value="Chet">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control border-input" placeholder="Last Name" value="Faker">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Country</label>
+                                        <input type="text" class="form-control border-input" placeholder="Country" value="Australia">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Postal Code</label>
+                                        <input type="number" class="form-control border-input" placeholder="ZIP Code">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>About Me</label>
+                                        <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike">
+Oh so, your weak rhyme
+You doubt I'll bother, reading into it
+I'll probably won't, left to my own devices
+But that's the difference in our opinions.</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> -->
+
+</div>
+
