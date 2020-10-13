@@ -32,7 +32,7 @@
         <powermock>1.5.1</powermock>
         <mockito>1.9.5</mockito>
         <slf4j>1.7.5</slf4j>
-        <junit>4.11</junit>
+        <junit>4.13.1</junit>
         <hamcrest-all>1.3</hamcrest-all>
         <hamcrest-date>0.9.3</hamcrest-date>
     </properties>
