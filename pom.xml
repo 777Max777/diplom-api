@@ -28,7 +28,7 @@
         <project.build.sourceEncoding>cp1251</project.build.sourceEncoding>
         <java>1.8</java>
         <lombok>1.18.8</lombok>
-        <gson>2.8.5</gson>
+        <gson>2.8.9</gson>
         <powermock>1.5.1</powermock>
         <mockito>1.9.5</mockito>
         <slf4j>1.7.5</slf4j>
