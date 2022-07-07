@@ -32,7 +32,7 @@
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
     "mdr-angular-select2": "^1.0.6",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng-chartist": "^4.1.0",
     "ng-multiselect-dropdown": "^0.2.3",
     "rxjs": "~6.3.3",
